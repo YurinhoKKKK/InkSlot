@@ -1,0 +1,191 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+.logo {
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+
+main {
+  background: url("bg.jpg") no-repeat center center;
+  background-size: cover;
+  height: 92vh;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+}
+
+.nav-list li {
+  letter-spacing: 1px;
+  margin-left: 32px;
+}
+
+.mobile-menu {
+  display: none;
+  cursor: pointer;
+}
+
+.mobile-menu div {
+  width: 32px;
+  height: 2px;
+  background: #fff;
+  margin: 8px;
+  transition: 0.3s;
+}
+
+@media (max-width: 999px) {
+  body {
+    overflow-x: hidden;
+  }
+  .nav-list {
+    position: absolute;
+    top: 8vh;
+    right: 0;
+    width: 50vw;
+    height: 92vh;
+    background: #23232e;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in;
+  }
+  .nav-list li {
+    margin-left: 0;
+    opacity: 0;
+  }
+  .mobile-menu {
+    display: block;
+  }
+}
+
+.nav-list.active {
+  transform: translateX(0);
+}
+
+@keyframes navLinkFade {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.mobile-menu.active .line1 {
+  transform: rotate(-45deg) translate(-8px, 8px);
+}
+
+.mobile-menu.active .line2 {
+  opacity: 0;
+}
+
+.mobile-menu.active .line3 {
+  transform: rotate(45deg) translate(-5px, -7px);
+}
+/* Estilos para o cabeçalho */
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Estilos do título */
+#title h1 {
+  font-size: 2.5rem; /* Tamanho ajustado */
+  line-height: 1.2; /* Espaçamento entre linhas */
+  font-family: 'Inter', sans-serif; /* A mesma fonte do h2 */
+  margin-bottom: 10px; /* Margem inferior reduzida */
+  font-weight: 200; /* Peso da fonte igual ao dos h2 */
+}
+
+/* Estilos para a lista de navegação */
+ul {
+  display: flex; /* Alinha os itens em linha */
+}
+
+/* Itens da lista */
+li {
+  display: inline-block;
+  margin: 30px; /* Aumentado para mais espaçamento */
+}
+
+/* Links */
+a {
+  color: white;
+}
+
+/* Hover dos links */
+a:hover {
+  color: rgb(132, 14, 201);
+  transition: 0.3s all;
+}
+
+/* Botão de inscrição */
+#inscreva-se-btn {
+  border: 2px solid rgb(132, 14, 201);
+  padding: 10px;
+  border-radius: 15px;
+}
+
+/* Hover do botão de inscrição */
+#inscreva-se-btn:hover {
+  background-color: rgb(132, 14, 201);
+  color: white;
+}
+
+/* Estilos para o menu hamburguer */
+.menu-toggle {
+  display: none; /* Oculta o menu hamburguer por padrão */
+  flex-direction: column; /* Coloca as barras em coluna */
+  cursor: pointer; /* Muda o cursor para pointer */
+}
+
+.bar {
+  height: 3px;
+  width: 25px;
+  background-color: white;
+  margin: 3px 0; /* Espaçamento entre as barras */
+}
+
+/* Estilos para dispositivos menores */
+@media (max-width: 768px) {
+  .nav-list {
+      display: none; /* Oculta a lista de navegação */
+      flex-direction: column; /* Alinha a lista em coluna */
+      position: absolute; /* Faz com que a lista fique sobre o conteúdo */
+      background-color: rgb(34, 34, 34); /* Fundo igual ao do cabeçalho */
+      width: 100%; /* Largura total */
+      top: 60px; /* Espaçamento do topo */
+      left: 0;
+      padding: 10px 0; /* Espaçamento interno */
+      z-index: 1; /* Fica acima de outros elementos */
+  }
+  
+  .nav-list.active {
+      display: flex; /* Mostra a lista quando ativa */
+  }
+
+  .menu-toggle {
+      display: flex; /* Mostra o menu hamburguer em dispositivos menores */
+  }
+}

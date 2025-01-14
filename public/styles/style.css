@@ -1,0 +1,112 @@
+body {
+    background-color: rgb(34, 34, 34);
+    color: white;
+    font-family: 'Inter', sans-serif;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#title h1 {
+    font-size: 2.5rem; /* Tamanho ajustado */
+    line-height: 1.2; /* Espaçamento entre linhas */
+    font-family: 'Inter', sans-serif; /* A mesma fonte do h2 */
+    margin-bottom: 10px; /* Margem inferior reduzida */
+    font-weight: 200; /* Peso da fonte igual ao dos h2 */
+}
+
+li {
+    display: inline-block;
+    margin: 30px; /* Aumentado para mais espaçamento */
+}
+
+a {
+    color: white;
+}
+
+a:hover {
+    color: rgb(132, 14, 201);
+    transition: 0.3s all;
+}
+
+#inscreva-se-btn {
+    border: 2px solid rgb(132, 14, 201);
+    padding: 10px;
+    border-radius: 15px;
+}
+
+#inscreva-se-btn:hover {
+    background-color: rgb(132, 14, 201);
+    color: white;
+}
+
+h1 {
+    font-weight: 200;
+    margin-bottom: 20px; /* Adicionado espaço abaixo do título */
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    text-align: center;
+    justify-content: center;
+}
+
+h2 {
+    font-size: 3rem;
+    line-height: 10px;
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 50px; /* Aumentado para adicionar mais espaço abaixo do título h2 */
+}
+
+span {
+    color: rgb(132, 14, 201);
+}
+
+p {
+    line-height: 24px; /* Aumentado para melhor legibilidade */
+    max-width: 600px; /* Aumentado para mais largura */
+    font-family: 'Inter', sans-serif;
+    text-align: justify;
+    margin: 0 auto 20px; /* Adicionado espaço em torno do parágrafo */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 400px; /* Aumentado para dar mais espaço */
+    margin: 0 auto;
+}
+
+form [type="submit"] {
+    height: 50px;
+    width: 100%;
+    background-color: rgb(132, 14, 201);
+    color: white;
+    font-weight: bold;
+    align-items: center;
+    margin-top: 20px; /* Adicionado espaço acima do botão */
+}
+
+form [type="submit"]:hover {
+    cursor: pointer;
+}
+
+input {
+    margin-top: 20px;
+    height: 40px; /* Mantido para usabilidade */
+    padding: 15px;
+    border-radius: 20px;
+    border: none;
+    font-size: 15px;
+}
+
