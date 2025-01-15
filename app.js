@@ -34,8 +34,13 @@ sequelize
   .then(() => console.log('Tabelas sincronizadas com sucesso!'))
   .catch((err) => console.error('Erro ao sincronizar tabelas:', err));
 
-app.use(bodyParser.json());
+process.on('uncaughtException', function (err) {
+  console.log(err);
+}); 
+
+
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 

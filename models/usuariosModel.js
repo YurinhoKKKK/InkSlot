@@ -7,6 +7,7 @@ const Usuario = sequelize.define('Usuario', {
     fone: { type: DataTypes.STRING(20), allowNull: false },
     email: { type: DataTypes.STRING(50), allowNull: false },
     senha: { type: DataTypes.STRING(255), allowNull: false },
+    genero: { type: DataTypes.STRING(50), allowNull: false }
 }, {
     tableName: 'usuarios',
     timestamps: false,

@@ -14,45 +14,40 @@ const authController = {
       req.session.userId = user.id;
       req.session.user = user;
 
-      res.redirect('/dashboard');
+      res.redirect('/');
     } catch (err) {
       res.status(500).json({ error: err.message });
     }
   },
 
   cadastro: async (req, res) => {
-    const { nome, datanasc, fone, email, senha } = req.body;
+    const { nome, genero, fone, email, senha } = req.body;
+  
+    if (!nome || !genero || !fone || !email || !senha) {
+      return res.render('cadastro', { errorMessage: 'Todos os campos são obrigatórios' });
+    }
+  
     const userExists = await usuarios.findOne({ where: { email } });
     if (userExists) {
       return res.render('cadastro', { errorMessage: 'Email já cadastrado' });
     }
-
-    const formatarData = (data) => {
-      const date = new Date(data);
-      const ano = date.getFullYear();
-      const mes = String(date.getMonth() + 1).padStart(2, '0');
-      const dia = String(date.getDate()).padStart(2, '0');
-      return `${ano}-${mes}-${dia}`;
-    };
-
-    const datanascFormatada = formatarData(datanasc);
-
+  
     try {
       const salt = await bcrypt.genSalt(10);
       const senhaHash = await bcrypt.hash(senha, salt);
-
-      const newUser = { nome, datanasc: datanascFormatada, fone, email, senha: senhaHash };
-
+  
+      const newUser = { nome, genero, fone, email, senha: senhaHash };
+  
       const createdUser = await usuarios.create(newUser);
-
+  
       req.session.userId = createdUser.id;
       req.session.user = newUser;
-
-      res.redirect('/dashboard');
+  
+      res.redirect('/');
     } catch (err) {
       res.status(500).json({ error: err.message });
     }
-  },
+  },  
 
   logout: (req, res) => {
     req.session.destroy((err) => {

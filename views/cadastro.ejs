@@ -6,12 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/cadastro.css">
+    <title>Cadastro</title>
 </head>
 
 <body>
     <div class="container">
         <div class="form">
-            <form action="#">
+            <form action="/auth/cadastro" method="post">
                 <div class="form-header">
                     <div class="title">
                         <h1>Cadastre-se</h1>
@@ -24,7 +25,7 @@
                 <div class="input-group">
                     <div class="input-box">
                         <label for="name">Nome</label>
-                        <input id="name" type="text" name="name" placeholder="Digite seu nome" required>
+                        <input id="name" type="text" name="nome" placeholder="Digite seu nome" required>
                     </div>
 
                     <div class="input-box">
@@ -34,14 +35,13 @@
 
                     <div class="input-box">
                         <label for="number">Celular</label>
-                        <input id="number" type="tel" name="number" placeholder="(xx) xxxx-xxxx" required>
+                        <input id="number" type="tel" name="fone" placeholder="(xx) xxxx-xxxx" required>
                     </div>
 
                     <div class="input-box">
                         <label for="password">Senha</label>
-                        <input id="password" type="password" name="password" placeholder="Digite sua senha" required>
+                        <input id="password" type="password" name="senha" placeholder="Digite sua senha" required>
                     </div>
-
                 </div>
 
                 <div class="gender-inputs">
@@ -51,30 +51,34 @@
 
                     <div class="gender-group">
                         <div class="gender-input">
-                            <input id="female" type="radio" name="gender">
-                            <label for="female">Feminino</label>
+                            <input id="feminino" type="radio" name="genero" value="Feminino" >
+                            <label for="feminino">Feminino</label>
                         </div>
 
                         <div class="gender-input">
-                            <input id="male" type="radio" name="gender">
-                            <label for="male">Masculino</label>
+                            <input id="masculino" type="radio" name="genero" value="Masculino">
+                            <label for="masculino">Masculino</label>
                         </div>
 
                         <div class="gender-input">
-                            <input id="others" type="radio" name="gender">
-                            <label for="others">Outros</label>
+                            <input id="outro" type="radio" name="genero" value="Outros">
+                            <label for="outro">Outros</label>
                         </div>
 
                         <div class="gender-input">
-                            <input id="none" type="radio" name="gender">
+                            <input id="none" type="radio" name="genero" value="Prefiro não dizer">
                             <label for="none">Prefiro não dizer</label>
                         </div>
                     </div>
                 </div>
 
                 <div class="continue-button">
-                    <button><a href="#">Continuar</a> </button>
+                    <button type="submit">Continuar</button>
                 </div>
+
+                <% if (typeof errorMessage !== 'undefined') { %>
+                    <div class="error-message"><%= errorMessage %></div>
+                <% } %>
             </form>
         </div>
         <div class="login-style">
