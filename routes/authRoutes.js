@@ -6,14 +6,6 @@ router.post('/login', authController.login);
 
 router.post('/cadastro', authController.cadastro);
 
-router.get('/cadastro', function (req, res) {
-    res.render('cadastro');
-});
-
-router.get('/login', function (req, res) {
-    res.render('login');
-});
-
 
 router.post('/logout', authController.logout);
 

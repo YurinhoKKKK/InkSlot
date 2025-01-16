@@ -1,3 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="./styles/style.css" rel="stylesheet">
+    <link href="./styles/fonts.css" rel="stylesheet">
+    <link href="./styles/media.css" rel="stylesheet">
+    <link href="./styles/footer.css" rel="stylesheet">
+    <title>Landing Page</title>
+</head>
+<body>
+    <header>
+        <div id="title">
+            <h2><span>Ink</span>Slot</h2>
+        </div>
+             
+
+        <ul>
+            <a href="/"><li>Início</li></a>
+            <a href="/home"><li>Tatuadores</li></a>
+            <a href="https://maps.app.goo.gl/gQKYLmvYmhdkrKo66" target="_blank" class="footer-link">Nos Encontre</a>
+            <a href="#footer"><li>Contato</li></a>
+            <a href="/cadastro" id="inscreva-se-btn"><li>Cadastrar-se</li></a>
+        </ul>
+    </header>
+
 <main>
     
 <aside>
@@ -6,14 +36,63 @@
     <p>
     Entre agora e tenha acesso rápido e fácil aos melhores tatuadores da região. Organize seus agendamentos com praticidade, escolha o artista perfeito e acompanhe cada detalhe do seu próximo projeto de tatuagem.
     </p>
-    <form>
-        <input type="email" placeholder="E-mail">
-        <input type="password" placeholder="Senha">
+    <form action="/auth/login" method="post">
+
+        <input id="email" type="email" name="email" placeholder="Digite seu e-mail" required>
+
+        <input id="password" type="password" name="senha" placeholder="Digite sua senha" required>
+
+
         <input type="submit" value="Entrar">
+
+        <% if (typeof errorMessage !== 'undefined') { %>
+            <div class="error-message"><%= errorMessage %></div>
+        <% } %>
     </form>
+</div>
 </aside>
 
 </main>
+
+<footer id="footer">
+    <div id="footer_content">
+        <div id="footer_contacts">
+            <h1>InkSlot</h1>
+            <p>Agende agora sua próxima sessão!</p>
+
+            <div id="footer_social_media">
+                <a href="#" class="footer-link" id="instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="#" class="footer-link" id="facebook">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+
+                <a href="#" class="footer-link" id="whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
         
-        
-   
+        <ul class="footer-list">
+            <li>
+                <h3>Menu</h3>
+            </li>
+            <li>
+                <a href="#" class="footer-link">Início</a>
+            </li>
+            <li>
+                <a href="#" class="footer-link">Tatuadores</a>
+            </li>
+            <li>
+                <a href="https://maps.app.goo.gl/gQKYLmvYmhdkrKo66" target="_blank" class="footer-link">Nos Encontre</a>
+            </li>
+        </ul>
+
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>        

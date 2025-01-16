@@ -16,7 +16,6 @@ const PORT = process.env.PORT || 3000;
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
-app.use(expressLayouts);
 
 app.use(
   session({
@@ -46,14 +45,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
   res.locals.baseUrl = `${req.protocol}://${req.get('host')}`;
-  next();
-});
-
-app.use((req, res, next) => {
-  const noLayoutRoutes = ['/auth/login', '/auth/cadastro']; 
-  if (noLayoutRoutes.includes(req.path)) {
-    res.locals.layout = false;
-  }
   next();
 });
 

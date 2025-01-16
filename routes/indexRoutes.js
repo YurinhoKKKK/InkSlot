@@ -23,6 +23,15 @@ router.get('/laura', function (req, res) {
   res.render('laura');
 });
 
+router.get('/cadastro', function (req, res) {
+  res.render('cadastro');
+});
+
+router.get('/login', function (req, res) {
+  res.render('login');
+});
+
+
 
 
 module.exports = router;
