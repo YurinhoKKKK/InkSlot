@@ -43,7 +43,7 @@ const authController = {
       req.session.userId = createdUser.id;
       req.session.user = newUser;
   
-      res.redirect('/');
+      res.redirect('/home');
     } catch (err) {
       res.status(500).json({ error: err.message });
     }
